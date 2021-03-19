@@ -34,5 +34,12 @@ class NotaViewModel (application: Application) : AndroidViewModel(application) {
             repository.insert(nota)
         }
 
+    fun delete(id:Int) = viewModelScope.launch(Dispatchers.IO) {
+        repository.delete(id)
+    }
+
+    fun update(id:Int,titulo:String, descricao:String) = viewModelScope.launch(Dispatchers.IO) {
+        repository.update(id,titulo, descricao)
+    }
 
 }

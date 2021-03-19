@@ -8,17 +8,22 @@ import android.text.TextUtils
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import ipvc.estg.commovtp1.adapters.NotaAdapter
 import ipvc.estg.commovtp1.entities.nota
+import ipvc.estg.commovtp1.viewmodel.NotaViewModel
 
 class Editar : AppCompatActivity() {
 
 
+    private lateinit var notaViewModel: NotaViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_editar)
 
-        val id =getIntent().getStringExtra("id")
+        val id =getIntent().getIntExtra("id",0)
         val titulo = getIntent().getStringExtra("titulo")
         val descricao = getIntent().getStringExtra("descricao")
 
@@ -29,28 +34,30 @@ class Editar : AppCompatActivity() {
         descricaoText.text=descricao
 
 
+        notaViewModel = ViewModelProvider(this).get(NotaViewModel::class.java)
+
 
 
 
 
         val button = findViewById<Button>(R.id.button_save)
         button.setOnClickListener {
-            val replyIntent = Intent()
-            if (TextUtils.isEmpty(tituloText.text)) {
-                setResult(Activity.RESULT_CANCELED, replyIntent)
-            } else {
-                replyIntent.putExtra(EXTRA_REPLY_titulo, tituloText.text.toString())
-                replyIntent.putExtra(EXTRA_REPLY_descricao, descricaoText.text.toString())
-                setResult(Activity.RESULT_OK, replyIntent)
-            }
+            val titulofinal = tituloText.text.toString()
+            val descricaofinal = descricaoText.text.toString()
+
+            notaViewModel.update(id, titulofinal, descricaofinal)
+
+            finish()
+        }
+
+        val Apagar = findViewById<Button>(R.id.Apagar)
+        Apagar.setOnClickListener {
+            notaViewModel.delete(id)
             finish()
         }
     }
 
-    companion object {
-        const val EXTRA_REPLY_titulo = "com.example.android.titulo"
-        const val EXTRA_REPLY_descricao = "com.example.android.descricao"
-    }
+
 
 
 

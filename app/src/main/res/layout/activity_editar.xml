@@ -7,23 +7,23 @@
         android:layout_height="match_parent"
         tools:context=".Editar">
 
-        <EditText
-            android:id="@+id/titulo"
-            android:layout_width="344dp"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/country"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginEnd="32dp"
-            android:layout_marginRight="32dp"
-            android:layout_marginBottom="40dp"
-            android:fontFamily="sans-serif-light"
-            android:hint="@string/insertTitulo"
-            android:inputType="textAutoComplete"
-            android:textSize="18sp" />
+    <EditText
+        android:id="@+id/titulo"
+        android:layout_width="344dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/descricao"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="34dp"
+        android:layout_marginRight="34dp"
+        android:layout_marginBottom="76dp"
+        android:fontFamily="sans-serif-light"
+        android:hint="@string/insertTitulo"
+        android:inputType="textAutoComplete"
+        android:textSize="18sp" />
 
-        <EditText
+    <EditText
             android:id="@+id/descricao"
             android:layout_width="341dp"
             android:layout_height="363dp"
@@ -41,8 +41,8 @@
 
     <Button
         android:id="@+id/button_save"
-        android:layout_width="374dp"
-        android:layout_height="62dp"
+        android:layout_width="205dp"
+        android:layout_height="70dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
@@ -53,6 +53,18 @@
         android:background="@color/colorPrimary"
         android:text="@string/guardar"
         app:rippleColor="@color/purple_700" />
+
+    <Button
+        android:id="@+id/Apagar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="29dp"
+        android:layout_marginLeft="29dp"
+        android:layout_marginBottom="55dp"
+        android:text="Apagar" />
 
 </RelativeLayout>
 
