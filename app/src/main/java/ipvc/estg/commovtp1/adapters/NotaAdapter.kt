@@ -10,7 +10,7 @@ import ipvc.estg.commovtp1.R
 import ipvc.estg.commovtp1.entities.nota
 
 class NotaAdapter  internal constructor(
-        context: Context
+        context: Context, var clickListener: OnNotaClickListener
     ) : RecyclerView.Adapter<NotaAdapter.NotaViewHolder>() {
 
         private val inflater: LayoutInflater = LayoutInflater.from(context)
@@ -19,6 +19,15 @@ class NotaAdapter  internal constructor(
         class NotaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             val notaItemView: TextView = itemView.findViewById(R.id.titulo)
             val descricaoItemView: TextView = itemView.findViewById(R.id.Descricao)
+
+            fun initialize(nota: nota, action:OnNotaClickListener){
+                notaItemView.text=nota.titulo
+                descricaoItemView.text=nota.descricao
+
+                itemView.setOnClickListener{
+                    action.onItemClick(nota, adapterPosition)
+                }
+            }
 
         }
 
@@ -32,6 +41,9 @@ class NotaAdapter  internal constructor(
             val current = notas[position]
             holder.notaItemView.text =  current.titulo
             holder.descricaoItemView.text= current.descricao
+
+            holder.initialize(notas.get(position),clickListener)
+
         }
 
         internal fun setNotas( notas : List<nota>) {
@@ -40,8 +52,9 @@ class NotaAdapter  internal constructor(
         }
 
         override fun getItemCount() =notas.size
-    interface OnNotaClickListener{
 
-        fun onnotaClick(nota: nota,position : Int)
+    interface OnNotaClickListener{
+        fun onItemClick(nota: nota, position: Int)
     }
+
 }

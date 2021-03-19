@@ -11,4 +11,5 @@ class NotasRepository(private val NotasDao: NotasDao) {
     suspend fun insert(nota: nota){
         NotasDao.insert(nota)
     }
+
 }

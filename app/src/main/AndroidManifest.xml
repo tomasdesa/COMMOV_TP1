@@ -9,8 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.COMMOVTP1">
-        <activity android:name=".MainActivity"></activity>
-
+        <activity android:name=".Editar"></activity>
+        <activity android:name=".MainActivity" />
         <activity android:name=".Notas">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

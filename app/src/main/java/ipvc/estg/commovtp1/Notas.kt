@@ -15,7 +15,7 @@ import ipvc.estg.commovtp1.adapters.NotaAdapter
 import ipvc.estg.commovtp1.entities.nota
 import ipvc.estg.commovtp1.viewmodel.NotaViewModel
 
-class Notas : AppCompatActivity() {
+class Notas : AppCompatActivity(), NotaAdapter.OnNotaClickListener {
 
     private lateinit var notaViewModel: NotaViewModel
     private val newNotaActivityRequestCode = 1
@@ -26,7 +26,7 @@ class Notas : AppCompatActivity() {
 
         // recycler view
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
-        val adapter = NotaAdapter(this)
+        val adapter = NotaAdapter(this,this)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -64,5 +64,15 @@ class Notas : AppCompatActivity() {
                 R.string.empty_not_saved,
                 Toast.LENGTH_LONG).show()
         }
+    }
+
+    override fun onItemClick(nota: nota, position: Int) {
+        //Toast.makeText(this, nota.titulo, Toast.LENGTH_SHORT).show()
+        val intent = Intent(this, Editar::class.java)
+        intent.putExtra("id", nota.id)
+        intent.putExtra("titulo", nota.titulo)
+        intent.putExtra("descricao", nota.descricao)
+
+        startActivity(intent)
     }
 }
