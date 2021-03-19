@@ -9,12 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.COMMOVTP1">
-        <activity android:name=".Notas"></activity>
-        <activity
-            android:name=".Inicial"
-            android:label="@string/title_activity_inicial"
-            android:theme="@style/Theme.COMMOVTP1.NoActionBar" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"></activity>
+
+        <activity android:name=".Notas">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -18,5 +18,15 @@
     <string name="adicionar_notas">Adicionar Nota</string>
     <string name="guardar">Guardar</string>
 
+    <string name="hint_word">Word...</string>
+    <string name="button_save">Guardar</string>
+    <string name="empty_not_saved">Word not saved because it is empty.</string>
+    <string name="add_word">Add word</string>
+
+    <string name="insertTitulo">Inserir Título</string>
+    <string name="insertDescricao">Inserir Descricao</string>
+
+
+    insertTitulo
 
 </resources>
