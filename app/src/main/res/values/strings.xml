@@ -20,13 +20,16 @@
 
     <string name="hint_word">Word...</string>
     <string name="button_save">Guardar</string>
-    <string name="empty_not_saved">Word not saved because it is empty.</string>
+    <string name="empty_not_saved">Nota não foi guardada, campos vazios </string>
     <string name="add_word">Add word</string>
 
     <string name="insertTitulo">Inserir Título</string>
     <string name="insertDescricao">Inserir Descricao</string>
+    <string name="editar_nota">Editar Nota</string>
+    <string name="apagar_nota">Apagar Nota</string>
+    <string name="mensagem_apagar">Deseja apagar a Nota? </string>
+    <string name="sim">Sim</string>
+    <string name="nao">Não</string>
 
-
-    insertTitulo
 
 </resources>

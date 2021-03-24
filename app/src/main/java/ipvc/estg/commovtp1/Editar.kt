@@ -1,6 +1,8 @@
 package ipvc.estg.commovtp1
 
 import android.app.Activity
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +10,7 @@ import android.text.TextUtils
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import ipvc.estg.commovtp1.adapters.NotaAdapter
@@ -27,6 +30,7 @@ class Editar : AppCompatActivity() {
         val titulo = getIntent().getStringExtra("titulo")
         val descricao = getIntent().getStringExtra("descricao")
 
+
        val tituloText = findViewById<TextView>(R.id.titulo)
         tituloText.text=titulo
 
@@ -45,14 +49,37 @@ class Editar : AppCompatActivity() {
             val titulofinal = tituloText.text.toString()
             val descricaofinal = descricaoText.text.toString()
 
-            notaViewModel.update(id, titulofinal, descricaofinal)
+            if (titulofinal != null || descricaofinal != null) {
+                notaViewModel.update(id, titulofinal, descricaofinal)
 
-            finish()
+                finish()
+
+            } else {
+                Toast.makeText(
+                        applicationContext,
+                        R.string.empty_not_saved,
+                        Toast.LENGTH_LONG).show()
+            }
         }
 
         val Apagar = findViewById<Button>(R.id.Apagar)
         Apagar.setOnClickListener {
-            notaViewModel.delete(id)
+            val AlertaApagar = AlertDialog.Builder(this)
+            AlertaApagar.setTitle(getString(R.string.apagar_nota))
+            AlertaApagar.setMessage(getString(R.string.mensagem_apagar))
+            AlertaApagar.setPositiveButton(getString(R.string.sim)){dialog: DialogInterface?, which: Int ->
+                notaViewModel.delete(id)
+                finish()
+            }
+
+            AlertaApagar.setNegativeButton(getString(R.string.nao)){ dialog, id ->
+                dialog.dismiss()
+            }
+            AlertaApagar.show()
+
+        }
+        val button_back=findViewById<Button>(R.id.button_back)
+        button_back.setOnClickListener{
             finish()
         }
     }

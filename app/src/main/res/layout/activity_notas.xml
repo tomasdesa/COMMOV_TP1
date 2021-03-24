@@ -70,7 +70,7 @@
         android:textSize="40sp" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button_back"
         android:layout_width="57dp"
         android:layout_height="43dp"
         android:layout_alignTop="@+id/textView"
