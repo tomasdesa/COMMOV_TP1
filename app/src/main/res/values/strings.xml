@@ -30,6 +30,7 @@
     <string name="mensagem_apagar">Deseja apagar a Nota? </string>
     <string name="sim">Sim</string>
     <string name="nao">Não</string>
+    <string name="adicionar_nota">Criar Nota</string>
 
 
 </resources>

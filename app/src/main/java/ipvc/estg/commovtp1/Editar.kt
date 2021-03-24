@@ -49,16 +49,17 @@ class Editar : AppCompatActivity() {
             val titulofinal = tituloText.text.toString()
             val descricaofinal = descricaoText.text.toString()
 
-            if (titulofinal != null || descricaofinal != null) {
-                notaViewModel.update(id, titulofinal, descricaofinal)
-
-                finish()
-
-            } else {
+            if (isNullOrEmpty(titulofinal)|| isNullOrEmpty(descricaofinal) ) {
                 Toast.makeText(
                         applicationContext,
                         R.string.empty_not_saved,
                         Toast.LENGTH_LONG).show()
+
+            } else {
+                notaViewModel.update(id, titulofinal, descricaofinal)
+
+                finish()
+
             }
         }
 
@@ -84,7 +85,11 @@ class Editar : AppCompatActivity() {
         }
     }
 
-
+    fun isNullOrEmpty(str: String?): Boolean {
+        if (str != null && !str.trim().isEmpty())
+            return false
+        return true
+    }
 
 
 

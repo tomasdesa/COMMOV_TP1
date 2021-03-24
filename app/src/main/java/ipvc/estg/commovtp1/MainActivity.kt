@@ -34,6 +34,10 @@ class MainActivity : AppCompatActivity() {
             }
             finish()
         }
+        val button_back=findViewById<Button>(R.id.button_back)
+        button_back.setOnClickListener{
+            finish()
+        }
     }
 
     companion object {
