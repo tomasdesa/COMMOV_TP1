@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         val button = findViewById<Button>(R.id.button_save)
         button.setOnClickListener {
             val replyIntent = Intent()
-            if (TextUtils.isEmpty(tituloText.text)) {
+            if (TextUtils.isEmpty(tituloText.text) || TextUtils.isEmpty(descricaoText.text)  ) {
                 setResult(Activity.RESULT_CANCELED, replyIntent)
             } else {
                 replyIntent.putExtra(EXTRA_REPLY_titulo, tituloText.text.toString())
