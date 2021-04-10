@@ -1,8 +1,8 @@
-package ipvc.estg.commovtp1.db
+package ipvc.estg.commovtp.db
 
 import androidx.lifecycle.LiveData
-import ipvc.estg.commovtp1.dao.NotasDao
-import ipvc.estg.commovtp1.entities.nota
+import ipvc.estg.commovtp.dao.NotasDao
+import ipvc.estg.commovtp.entities.nota
 
 class NotasRepository(private val NotasDao: NotasDao) {
 

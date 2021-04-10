@@ -1,13 +1,12 @@
-package ipvc.estg.commovtp1.db
+package ipvc.estg.commovtp.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
-import ipvc.estg.commovtp1.Notas
-import ipvc.estg.commovtp1.dao.NotasDao
-import ipvc.estg.commovtp1.entities.nota
+import ipvc.estg.commovtp.dao.NotasDao
+import ipvc.estg.commovtp.entities.nota
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 

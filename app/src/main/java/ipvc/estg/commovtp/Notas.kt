@@ -1,4 +1,4 @@
-package ipvc.estg.commovtp1
+package ipvc.estg.commovtp
 
 import android.app.Activity
 import android.content.Intent
@@ -11,9 +11,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import ipvc.estg.commovtp1.adapters.NotaAdapter
-import ipvc.estg.commovtp1.entities.nota
-import ipvc.estg.commovtp1.viewmodel.NotaViewModel
+import ipvc.estg.commovtp.adapters.NotaAdapter
+import ipvc.estg.commovtp.entities.nota
+import ipvc.estg.commovtp.viewmodel.NotaViewModel
 
 class Notas : AppCompatActivity(), NotaAdapter.OnNotaClickListener {
 

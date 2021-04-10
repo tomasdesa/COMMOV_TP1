@@ -1,8 +1,8 @@
-package ipvc.estg.commovtp1.dao
+package ipvc.estg.commovtp.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import ipvc.estg.commovtp1.entities.nota
+import ipvc.estg.commovtp.entities.nota
 
 @Dao
 interface NotasDao {

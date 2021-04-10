@@ -1,4 +1,4 @@
-package ipvc.estg.commovtp1.API
+package ipvc.estg.commovtp.API
 
 
 import retrofit2.http.*
@@ -7,7 +7,7 @@ import retrofit2.Call
 
 interface Endpoints {
 
-    @GET("/user/")
+    @GET("/myslim/API/user/")
     fun  getUsers(): Call<List<User>>
 
     @GET("/user/{id}")

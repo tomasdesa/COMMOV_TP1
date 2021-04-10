@@ -1,4 +1,4 @@
-package ipvc.estg.commovtp1.API
+package ipvc.estg.commovtp.API
 
 data class User(
 

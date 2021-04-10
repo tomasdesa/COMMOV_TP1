@@ -1,21 +1,14 @@
-package ipvc.estg.commovtp1
+package ipvc.estg.commovtp
 
-import android.app.Activity
 import android.app.AlertDialog
 import android.content.DialogInterface
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.TextUtils
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import ipvc.estg.commovtp1.adapters.NotaAdapter
-import ipvc.estg.commovtp1.entities.nota
-import ipvc.estg.commovtp1.viewmodel.NotaViewModel
+import ipvc.estg.commovtp.viewmodel.NotaViewModel
 
 class Editar : AppCompatActivity() {
 

@@ -1,4 +1,4 @@
-package ipvc.estg.commovtp1.adapters
+package ipvc.estg.commovtp.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import ipvc.estg.commovtp1.R
-import ipvc.estg.commovtp1.entities.nota
+import ipvc.estg.commovtp.R
+import ipvc.estg.commovtp.entities.nota
 
 class NotaAdapter  internal constructor(
         context: Context, var clickListener: OnNotaClickListener

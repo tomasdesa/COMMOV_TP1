@@ -6,15 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".Login">
 
-    <TextView
+    <EditText
         android:id="@+id/username"
-        android:layout_width="184dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="112dp"
-        android:layout_marginRight="112dp"
-        android:layout_marginBottom="520dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="96dp"
+        android:layout_marginLeft="96dp"
+        android:layout_marginBottom="516dp"
+        android:ems="10"
+        android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/login"
@@ -46,7 +48,7 @@
         android:layout_marginEnd="128dp"
         android:layout_marginRight="128dp"
         android:layout_marginBottom="12dp"
-        android:text="sss"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/login"
         app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package ipvc.estg.commovtp1
+package ipvc.estg.commovtp
 
 import android.app.Activity
 import android.content.Intent

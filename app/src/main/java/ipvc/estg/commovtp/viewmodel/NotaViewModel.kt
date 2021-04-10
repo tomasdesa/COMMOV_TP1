@@ -1,14 +1,12 @@
-package ipvc.estg.commovtp1.viewmodel
+package ipvc.estg.commovtp.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import ipvc.estg.commovtp1.Notas
-import ipvc.estg.commovtp1.dao.NotasDao
-import ipvc.estg.commovtp1.db.NotaDB
-import ipvc.estg.commovtp1.db.NotasRepository
-import ipvc.estg.commovtp1.entities.nota
+import ipvc.estg.commovtp.db.NotaDB
+import ipvc.estg.commovtp.db.NotasRepository
+import ipvc.estg.commovtp.entities.nota
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

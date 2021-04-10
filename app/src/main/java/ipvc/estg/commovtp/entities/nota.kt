@@ -1,4 +1,4 @@
-package ipvc.estg.commovtp1.entities
+package ipvc.estg.commovtp.entities
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
