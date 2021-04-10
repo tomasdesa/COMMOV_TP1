@@ -31,6 +31,7 @@
     <string name="sim">Sim</string>
     <string name="nao">Não</string>
     <string name="adicionar_nota">Criar Nota</string>
-
+    <string name="naoexiste">Não existe esse utilizador!</string>
+    <string name="passErrada">Palavra-Passe Errada!</string>
 
 </resources>
