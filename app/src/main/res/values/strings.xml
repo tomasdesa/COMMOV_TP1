@@ -31,6 +31,7 @@
     <string name="sim">Sim</string>
     <string name="nao">Não</string>
     <string name="adicionar_nota">Criar Nota</string>
+    <string name="title_activity_mapa">Map</string>
 
 
 </resources>
