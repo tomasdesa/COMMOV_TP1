@@ -1,8 +1,8 @@
 package ipvc.estg.commovtp1.API
 
 data class OutputPost (
-    val username:String,
-    val password:String,
-    val id:Int
+    val status:String,
+    val MSG:String,
+    val id:String
 )
 

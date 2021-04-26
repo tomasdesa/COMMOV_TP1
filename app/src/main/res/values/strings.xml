@@ -33,5 +33,7 @@
     <string name="adicionar_nota">Criar Nota</string>
     <string name="naoexiste">Não existe esse utilizador!</string>
     <string name="passErrada">Palavra-Passe Errada!</string>
+    <string name="campoutilizador">Campo Utilizador vazio</string>
+    <string name="campopassword">Campo Password vazio</string>
 
 </resources>

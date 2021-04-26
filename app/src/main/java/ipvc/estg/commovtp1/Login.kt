@@ -30,28 +30,44 @@ class Login : AppCompatActivity() {
 
         val login = findViewById<Button>(R.id.login)
         login.setOnClickListener {
+
+            val request = ServiceBuilder.buildService(Endpoints::class.java)
+
             val user = usernameText.text.toString()
             val pass = passwordText.text.toString()
 
-            val call = request.login(user, pass)
-            teste.text="kekw"
+            teste.text=user
 
-            call.enqueue(object : Callback<OutputPost> {
-                override fun onResponse(call: Call<OutputPost>, response: Response<OutputPost>) {
+            if(user == "") {
+                Toast.makeText(
+                        applicationContext,
+                        getString(R.string.campoutilizador),
+                        Toast.LENGTH_LONG).show()
+            }
+            else if(pass == "") {
+                Toast.makeText(
+                        applicationContext,
+                        getString(R.string.campopassword),
+                        Toast.LENGTH_LONG).show()
+            }
+            else {
+                val call = request.login(user, pass)
 
-                    if (response.isSuccessful) {
+                call.enqueue(object : Callback<OutputPost> {
+                    override fun onResponse(call: Call<OutputPost>, response: Response<OutputPost>) {
+                        if (response.isSuccessful) {
 
-                        val i = response.body()!!
-                        Toast.makeText(this@Login,i.username,Toast.LENGTH_SHORT).show()
-
+                            val c: OutputPost = response.body()!!
+                            Toast.makeText(this@Login,c.MSG,Toast.LENGTH_SHORT).show()
+                        }
                     }
-                }
 
-                override fun onFailure(call: Call<OutputPost>, t: Throwable) {
-                    Toast.makeText(this@Login, "${t.message}", Toast.LENGTH_SHORT).show()
-                }
+                    override fun onFailure(call: Call<OutputPost>, t: Throwable) {
+                        Toast.makeText(this@Login, "${t.message}", Toast.LENGTH_SHORT).show()
+                    }
 
-            })
+                })
+            }
         }
     }
 }
