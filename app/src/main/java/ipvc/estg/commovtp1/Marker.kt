@@ -50,8 +50,20 @@ class Marker : AppCompatActivity() {
             }
         })
 
+        val add = findViewById<FloatingActionButton>(R.id.fab)
+
+        add.setOnClickListener() {
+            markerInicio(idUser)
+        }
 
 
+
+    }
+
+    fun markerInicio(marker: String) {
+        val intent = Intent(this, AddProblema::class.java)
+        intent.putExtra("id_user", marker)
+        startActivity(intent)
     }
 
 }
