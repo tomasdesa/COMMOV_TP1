@@ -25,7 +25,7 @@ interface Endpoints {
     fun getMarkerByIdUser(@Path("id_user") id:Int): Call<List<marker>>
 
     @FormUrlEncoded
-    @POST("/myslim/api/postMarker")
+    @POST("/myslim/API/postMarker")
     fun postMarker( @Field("titulo") titulo:String?,
                     @Field("descricao") descricao:String?,
                     @Field("longitude") longitude:Double?,
