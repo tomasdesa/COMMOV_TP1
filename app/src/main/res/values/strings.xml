@@ -35,5 +35,6 @@
     <string name="passErrada">Palavra-Passe Errada!</string>
     <string name="campoutilizador">Campo Utilizador vazio</string>
     <string name="campopassword">Campo Password vazio</string>
+    <string name="Problemas">Problemas</string>
 
 </resources>
