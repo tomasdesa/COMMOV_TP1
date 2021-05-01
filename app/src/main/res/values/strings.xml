@@ -52,4 +52,10 @@
         <item>engarrafamento</item>
     </string-array>
 
+    <string name="preference_file_key">file1</string>
+    <string name="button">false</string>
+    <string name="username">username</string>
+    <string name="password">password</string>
+
+
 </resources>
