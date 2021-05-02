@@ -73,7 +73,7 @@ class Login : AppCompatActivity() {
         }
     }
     fun markerInicio(marker: String) {
-        val intent = Intent(this, Marker::class.java)
+        val intent = Intent(this, Mapa::class.java)
         intent.putExtra("id_user", marker)
         startActivity(intent)
     }
