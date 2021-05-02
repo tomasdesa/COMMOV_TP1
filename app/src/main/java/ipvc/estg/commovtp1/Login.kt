@@ -76,5 +76,6 @@ class Login : AppCompatActivity() {
         val intent = Intent(this, Mapa::class.java)
         intent.putExtra("id_user", marker)
         startActivity(intent)
+        finish()
     }
 }
