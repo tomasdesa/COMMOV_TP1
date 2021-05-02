@@ -27,6 +27,8 @@ class Login : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        val request = ServiceBuilder.buildService(Endpoints::class.java)
+
         val usernameText = findViewById<TextView>(R.id.username)
 
         val passwordText = findViewById<TextView>(R.id.password)
@@ -41,18 +43,38 @@ class Login : AppCompatActivity() {
         Log.d("shared", "Read $ischecked")
 
         if(ischecked){
+
             findViewById<CheckBox>(R.id.loginischecked).isChecked=true
-            usernameText.text=sharedPref.getString(getString(R.string.username), "")
-            passwordText.text=sharedPref.getString(getString(R.string.password), "")
+            val user=sharedPref.getString(getString(R.string.username), "")
+            val pass=sharedPref.getString(getString(R.string.password), "")
+
+            val call = request.login(user, pass)
+
+            call.enqueue(object : Callback<OutputPost> {
+                override fun onResponse(call: Call<OutputPost>, response: Response<OutputPost>) {
+                    if (response.isSuccessful) {
+
+                        val c: OutputPost = response.body()!!
+                        Toast.makeText(this@Login,c.MSG,Toast.LENGTH_SHORT).show()
+                        markerInicio(c.id)
+                        finish()
+                    }
+                }
+
+                override fun onFailure(call: Call<OutputPost>, t: Throwable) {
+                    Toast.makeText(this@Login, "${t.message}", Toast.LENGTH_SHORT).show()
+                }
+
+            })
+
+
+
         }
-
-
-
 
         val login = findViewById<Button>(R.id.login)
         login.setOnClickListener {
 
-            val request = ServiceBuilder.buildService(Endpoints::class.java)
+
 
             val user = usernameText.text.toString()
             val pass = passwordText.text.toString()
@@ -73,11 +95,14 @@ class Login : AppCompatActivity() {
             }
             else {
                 val call = request.login(user, pass)
+                val view= findViewById<CheckBox>(R.id.loginischecked)
 
                 call.enqueue(object : Callback<OutputPost> {
                     override fun onResponse(call: Call<OutputPost>, response: Response<OutputPost>) {
                         if (response.isSuccessful) {
-
+                            if (view.isChecked() ) {
+                                checkboxisClicked(view)
+                            }
                             val c: OutputPost = response.body()!!
                             Toast.makeText(this@Login,c.MSG,Toast.LENGTH_SHORT).show()
                             markerInicio(c.id)
