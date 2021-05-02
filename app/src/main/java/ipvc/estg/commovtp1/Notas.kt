@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.SyncStateContract.Helpers.insert
+import android.widget.Button
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -42,6 +43,10 @@ class Notas : AppCompatActivity(), NotaAdapter.OnNotaClickListener {
         fab.setOnClickListener {
             val intent = Intent(this@Notas, MainActivity::class.java)
             startActivityForResult(intent, newNotaActivityRequestCode)
+        }
+        val button_back=findViewById<Button>(R.id.button_back)
+        button_back.setOnClickListener{
+            finish()
         }
 
     }

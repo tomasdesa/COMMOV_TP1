@@ -60,7 +60,7 @@ class Login : AppCompatActivity() {
 
                             val c: OutputPost = response.body()!!
                             Toast.makeText(this@Login,c.MSG,Toast.LENGTH_SHORT).show()
-                            markerInicio(c.id)
+                            markerInicio(c.id, user)
                         }
                     }
 
@@ -72,9 +72,10 @@ class Login : AppCompatActivity() {
             }
         }
     }
-    fun markerInicio(marker: String) {
+    fun markerInicio(marker: String,username:String) {
         val intent = Intent(this, Mapa::class.java)
         intent.putExtra("id_user", marker)
+        intent.putExtra("username", username)
         startActivity(intent)
         finish()
     }
