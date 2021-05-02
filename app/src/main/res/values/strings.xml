@@ -37,4 +37,25 @@
     <string name="campopassword">Campo Password vazio</string>
     <string name="Problemas">Problemas</string>
 
+    <string name="fotoProb">Inserir Foto</string>
+    <string name="Add_nota">Adicionar nota</string>
+    <string name="Add_Problema">Adicionar Problema</string>
+    <string name="InsertLong">Inserir Longitude</string>
+    <string name="insertLat">Inserir latitude</string>
+    <string name="coords">" Coordenadas"</string>
+    <string name="TipoProb">Inserir Tipo</string>
+
+    <string-array name="tipoProb">
+        <item>obras</item>
+        <item>acidente</item>
+        <item>buracos</item>
+        <item>estrada fechada</item>
+        <item>engarrafamento</item>
+    </string-array>
+
+    <string name="preference_file_key">file1</string>
+    <string name="button">false</string>
+    <string name="username">username</string>
+    <string name="password">password</string>
+
 </resources>

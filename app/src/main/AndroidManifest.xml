@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ipvc.estg.commovtp1">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -20,6 +22,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Login"></activity>
+        <activity android:name=".AddProblema"/>
         <activity android:name=".Editar" />
         <activity android:name=".MainActivity" />
         <activity android:name=".Notas" />
