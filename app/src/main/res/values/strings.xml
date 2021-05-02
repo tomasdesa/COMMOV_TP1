@@ -57,5 +57,12 @@
     <string name="button">false</string>
     <string name="username">username</string>
     <string name="password">password</string>
+    <string name="my_account">A minha conta</string>
+    <string name="home">Home</string>
+    <string name="logout">Log Out</string>
+    <string name="Bemvindo">"Bem Vindo "</string>
+
+    <string name="title_activity_mapa">Map</string>
+    <string name="title_activity_nav_app">NavApp</string>
 
 </resources>

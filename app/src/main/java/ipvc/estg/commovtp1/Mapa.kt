@@ -1,8 +1,11 @@
 package ipvc.estg.commovtp1
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.method.TextKeyListener.clear
 import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
@@ -17,10 +20,17 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.navigation.NavigationView
+import ipvc.estg.commovtp.API.Endpoints
+import ipvc.estg.commovtp.API.ServiceBuilder
+import ipvc.estg.commovtp1.API.marker
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class Mapa : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
+    private lateinit var aMarker: List<marker>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +40,7 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
         val username = getIntent().getStringExtra("username")
         val id_user: Int = idUser!!.toInt()
 
+        val request = ServiceBuilder.buildService(Endpoints::class.java)
 
 
         val drawerLayout = findViewById<DrawerLayout>(R.id.drawerLayout)
@@ -45,22 +56,30 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
         navView.setNavigationItemSelectedListener {
             when (it.itemId){
                 R.id.home ->{
-
+                    drawerLayout.closeDrawer(GravityCompat.START)
                 }
                 R.id.Problemas ->{
 
-                    Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, Marker::class.java)
+                    intent.putExtra("id_user", idUser)
+                    startActivity(intent)
             }
                 R.id.Notas ->{
 
                     val intent = Intent(this, Notas::class.java)
                     startActivity(intent)
-
                 }
                 R.id.logout ->{
 
-                    val intent = Intent(this, Login::class.java)
+                    val sharedPref:SharedPreferences=getSharedPreferences(
+                        getString(R.string.preference_file_key), Context.MODE_PRIVATE)
 
+                   val editor: SharedPreferences.Editor= sharedPref.edit()
+                    editor.clear()
+                    editor.commit()
+                    editor.apply()
+
+                    val intent = Intent(this, Login::class.java)
                     startActivity(intent)
                     finish()
 
@@ -82,6 +101,26 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
         val mapFragment = supportFragmentManager
                 .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
+        val call = request.getMarkers()
+        var position: LatLng
+
+        call.enqueue(object : Callback<List<marker>> {
+            override fun onResponse(call: Call<List<marker>>, response: Response<List<marker>>) {
+                if(response.isSuccessful) {
+
+                    aMarker = response.body()!!
+                    for(marker in aMarker) {
+                        position = LatLng(marker.latitude.toString().toDouble(), marker.longitude.toString().toDouble())
+                        mMap.addMarker(MarkerOptions().position(position).title(marker.titulo + " - " + marker.tipoproblema))
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<List<marker>>, t: Throwable) {
+                Toast.makeText(this@Mapa, "${t.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 
     /**

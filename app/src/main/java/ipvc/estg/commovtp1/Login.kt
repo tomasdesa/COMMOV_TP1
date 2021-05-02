@@ -57,7 +57,7 @@ class Login : AppCompatActivity() {
 
                         val c: OutputPost = response.body()!!
                         Toast.makeText(this@Login,c.MSG,Toast.LENGTH_SHORT).show()
-                        markerInicio(c.id)
+                        markerInicio(c.id,user)
                         finish()
                     }
                 }
@@ -106,7 +106,7 @@ class Login : AppCompatActivity() {
                             }
                             val c: OutputPost = response.body()!!
                             Toast.makeText(this@Login,c.MSG,Toast.LENGTH_SHORT).show()
-                            markerInicio(c.id)
+                            markerInicio(c.id,user)
                             finish()
                         }
                     }
@@ -119,9 +119,10 @@ class Login : AppCompatActivity() {
             }
         }
     }
-    fun markerInicio(marker: String) {
-        val intent = Intent(this, Marker::class.java)
+    fun markerInicio(marker: String, user:String?) {
+        val intent = Intent(this, Mapa::class.java)
         intent.putExtra("id_user", marker)
+        intent.putExtra("username", user)
         startActivity(intent)
     }
     fun checkboxisClicked(view: View){
