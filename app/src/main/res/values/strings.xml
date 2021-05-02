@@ -36,11 +36,5 @@
     <string name="campoutilizador">Campo Utilizador vazio</string>
     <string name="campopassword">Campo Password vazio</string>
     <string name="Problemas">Problemas</string>
-    <string name="title_activity_mapa">Map</string>
-    <string name="title_activity_nav_app">NavApp</string>
-    <string name="my_account">A minha conta</string>
-    <string name="home">Home</string>
-    <string name="logout">logout</string>
-    <string name="Bemvindo">\"Bem Vindo \"</string>
 
 </resources>
