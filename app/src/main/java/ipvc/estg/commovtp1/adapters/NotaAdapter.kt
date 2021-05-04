@@ -17,7 +17,7 @@ class NotaAdapter  internal constructor(
         private var notas = emptyList<nota>() // Cached copy of cities
 
         class NotaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-            val notaItemView: TextView = itemView.findViewById(R.id.titulo)
+            val notaItemView: TextView = itemView.findViewById(R.id.tituloedit)
             val descricaoItemView: TextView = itemView.findViewById(R.id.Descricao)
 
             fun initialize(nota: nota, action:OnNotaClickListener){

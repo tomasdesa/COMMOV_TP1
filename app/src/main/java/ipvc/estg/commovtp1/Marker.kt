@@ -3,11 +3,8 @@ package ipvc.estg.commovtp1
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-import android.app.Activity
 import android.content.Intent
 import android.widget.Toast
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -20,7 +17,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 
-class Marker : AppCompatActivity() {
+class Marker : AppCompatActivity(), MarkerAdapter.OnMarkerClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +37,7 @@ class Marker : AppCompatActivity() {
                     recyclerView.apply {
                         setHasFixedSize(true)
                         layoutManager = LinearLayoutManager (this@Marker)
-                        adapter = MarkerAdapter(response.body()!!)
+                        adapter = MarkerAdapter(response.body()!!,this@Marker)
                     }
                 }
             }
@@ -63,6 +60,12 @@ class Marker : AppCompatActivity() {
     fun markerInicio(marker: String) {
         val intent = Intent(this, AddProblema::class.java)
         intent.putExtra("id_user", marker)
+        startActivity(intent)
+    }
+    override fun onMarkerClick(marker: marker, position: Int) {
+        //Toast.makeText(this, nota.titulo, Toast.LENGTH_SHORT).show()
+        val intent = Intent(this, EditMarker::class.java)
+        intent.putExtra("marker_id", marker.id)
         startActivity(intent)
     }
 

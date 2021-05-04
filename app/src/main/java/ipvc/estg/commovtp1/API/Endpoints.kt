@@ -28,6 +28,17 @@ interface Endpoints {
     @GET("/myslim/API/markerUser/{id_user}")
     fun getMarkerByIdUser(@Path("id_user") id:Int): Call<List<marker>>
 
+    @GET("/myslim/API/markerUser/{id}")
+    fun getMarkerById(@Path("id") id:Int): Call<marker>
+
+    @PUT("/myslim/API/markerPut/{id}")
+    fun updateMarker(@Field("titulo") titulo:String?,
+                        @Field("descricao") descricao:String?,
+                        @Field("longitude") longitude:Double?,
+                        @Field("latitude") latitude:Double?,
+                        @Field("imagem") imagem:String?,
+                        @Field("tipoproblema") tipoproblema:String?):Call<marker>
+
     @FormUrlEncoded
     @POST("/myslim/API/postMarker")
     fun postMarker( @Field("titulo") titulo:String?,

@@ -28,10 +28,10 @@
         android:textSize="40sp" />
 
     <EditText
-        android:id="@+id/titulo"
+        android:id="@+id/tituloedit"
         android:layout_width="360dp"
         android:layout_height="62dp"
-        android:layout_above="@+id/descricao"
+        android:layout_above="@+id/descricaoedit"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_centerHorizontal="true"
@@ -48,7 +48,7 @@
         android:textSize="18sp" />
 
     <EditText
-        android:id="@+id/descricao"
+        android:id="@+id/descricaoedit"
         android:layout_width="363dp"
         android:layout_height="323dp"
         android:layout_above="@+id/button_save"

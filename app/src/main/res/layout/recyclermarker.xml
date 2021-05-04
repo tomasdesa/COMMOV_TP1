@@ -6,7 +6,7 @@
     android:background="@drawable/round_corners"
     android:orientation="vertical">
     <TextView
-        android:id="@+id/titulo"
+        android:id="@+id/tituloedit"
         android:layout_width="match_parent"
         android:layout_height="54dp"
 
@@ -14,7 +14,7 @@
         android:textColor="@color/black"
         android:textSize="24sp" />
     <TextView
-        android:id="@+id/descricao"
+        android:id="@+id/descricaoedit"
         android:layout_width="match_parent"
         android:layout_height="54dp"
 

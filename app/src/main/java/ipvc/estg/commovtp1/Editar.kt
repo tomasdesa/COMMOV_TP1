@@ -1,20 +1,13 @@
 package ipvc.estg.commovtp1
 
-import android.app.Activity
 import android.app.AlertDialog
 import android.content.DialogInterface
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.TextUtils
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import ipvc.estg.commovtp1.adapters.NotaAdapter
-import ipvc.estg.commovtp1.entities.nota
 import ipvc.estg.commovtp1.viewmodel.NotaViewModel
 
 class Editar : AppCompatActivity() {
@@ -31,10 +24,10 @@ class Editar : AppCompatActivity() {
         val descricao = getIntent().getStringExtra("descricao")
 
 
-       val tituloText = findViewById<TextView>(R.id.titulo)
+       val tituloText = findViewById<TextView>(R.id.tituloedit)
         tituloText.text=titulo
 
-        val descricaoText = findViewById<TextView>(R.id.descricao)
+        val descricaoText = findViewById<TextView>(R.id.descricaoedit)
         descricaoText.text=descricao
 
 

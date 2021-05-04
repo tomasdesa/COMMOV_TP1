@@ -106,8 +106,12 @@ class Login : AppCompatActivity() {
                             }
                             val c: OutputPost = response.body()!!
                             Toast.makeText(this@Login,c.MSG,Toast.LENGTH_SHORT).show()
-                            markerInicio(c.id,user)
-                            finish()
+
+                            if (c.status=="true"){
+                                markerInicio(c.id,user)
+                                finish()
+                            }
+
                         }
                     }
 
