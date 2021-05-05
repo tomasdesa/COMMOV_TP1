@@ -3,8 +3,11 @@ package ipvc.estg.commovtp1
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.icu.util.Output
 import android.location.Location
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -33,7 +36,7 @@ class EditMarker : AppCompatActivity() {
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
-        val id_marker = getIntent().getIntExtra("marker_id",0)
+        val id_marker = getIntent().getIntExtra("id",0)
 
         val titulo = findViewById<TextView>(R.id.tituloedit)
         val descricao = findViewById<TextView>(R.id.descricaoedit)
@@ -42,6 +45,7 @@ class EditMarker : AppCompatActivity() {
         val imagem = findViewById<TextView>(R.id.imagemedit)
 
 
+        Toast.makeText(this@EditMarker, id_marker.toString(), Toast.LENGTH_SHORT).show()
 
 
         val request = ServiceBuilder.buildService(Endpoints::class.java)
@@ -54,6 +58,8 @@ class EditMarker : AppCompatActivity() {
                 if (response.isSuccessful) {
 
                     val c: marker = response.body()!!
+
+                    Toast.makeText(this@EditMarker, id_marker.toString(), Toast.LENGTH_SHORT).show()
 
                     titulo.text = c.titulo
                     descricao.text = c.descricao
@@ -152,6 +158,39 @@ class EditMarker : AppCompatActivity() {
                 }
 
             })
+        }
+
+        val Apagar = findViewById<Button>(R.id.Apagar)
+        Apagar.setOnClickListener {
+            val AlertaApagar = AlertDialog.Builder(this)
+            AlertaApagar.setTitle(getString(R.string.apagar_nota))
+            AlertaApagar.setMessage(getString(R.string.mensagem_apagar))
+            AlertaApagar.setPositiveButton(getString(R.string.sim)){ dialog: DialogInterface?, which: Int ->
+
+                val call = request.DeleteMarker(id_marker)
+
+                call.enqueue(object : Callback<Outputmarker> {
+                    override fun onResponse(call: Call<Outputmarker>, response: Response<Outputmarker>) {
+                        if (response.isSuccessful) {
+
+                            Toast.makeText(this@EditMarker,"Está a dar",Toast.LENGTH_SHORT).show()
+
+                        }
+                    }
+
+                    override fun onFailure(call: Call<Outputmarker>, t: Throwable) {
+                        Toast.makeText(this@EditMarker, "${t.message}", Toast.LENGTH_SHORT).show()
+                    }
+
+                })
+                finish()
+            }
+
+            AlertaApagar.setNegativeButton(getString(R.string.nao)){ dialog, id ->
+                dialog.dismiss()
+            }
+            AlertaApagar.show()
+
         }
 
     }

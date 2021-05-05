@@ -42,7 +42,7 @@
     <string name="Add_Problema">Adicionar Problema</string>
     <string name="InsertLong">Inserir Longitude</string>
     <string name="insertLat">Inserir latitude</string>
-    <string name="coords">" Coordenadas"</string>
+    <string name="coords">Coordenadas</string>
     <string name="TipoProb">Inserir Tipo</string>
 
     <string-array name="tipoProb">
@@ -64,5 +64,6 @@
 
     <string name="title_activity_mapa">Map</string>
     <string name="title_activity_nav_app">NavApp</string>
+    <string name="Editarproblema">Editar Problema</string>
 
 </resources>

@@ -1,6 +1,7 @@
 package ipvc.estg.commovtp.API
 
 
+import android.icu.util.Output
 import ipvc.estg.commovtp1.API.OutputPost
 import ipvc.estg.commovtp1.API.Outputmarker
 import ipvc.estg.commovtp1.API.marker
@@ -28,16 +29,19 @@ interface Endpoints {
     @GET("/myslim/API/markerUser/{id_user}")
     fun getMarkerByIdUser(@Path("id_user") id:Int): Call<List<marker>>
 
-    @GET("/myslim/API/markerUser/{id}")
-    fun getMarkerById(@Path("id") id:Int): Call<marker>
+    @GET("/myslim/API/marker/{id}")
+    fun getMarkerById(@Path("id") id:Int?): Call<marker>
 
-    @PUT("/myslim/API/markerPut/{id}")
+    @POST("/myslim/API/markerPut/{id}")
     fun updateMarker(@Field("titulo") titulo:String?,
                         @Field("descricao") descricao:String?,
                         @Field("longitude") longitude:Double?,
                         @Field("latitude") latitude:Double?,
                         @Field("imagem") imagem:String?,
                         @Field("tipoproblema") tipoproblema:String?):Call<marker>
+
+    @POST("/myslim/API/markerDelete/{id}")
+    fun DeleteMarker(@Path("id") id:Int?): Call<Outputmarker>
 
     @FormUrlEncoded
     @POST("/myslim/API/postMarker")
