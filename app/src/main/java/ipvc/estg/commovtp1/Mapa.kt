@@ -3,22 +3,31 @@ package ipvc.estg.commovtp1
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.pm.PackageManager
+import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.method.TextKeyListener.clear
+import android.util.Log
 import android.view.MenuItem
+import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import com.google.android.gms.location.*
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import ipvc.estg.commovtp.API.Endpoints
 import ipvc.estg.commovtp.API.ServiceBuilder
@@ -31,6 +40,16 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
     private lateinit var aMarker: List<marker>
+
+    private lateinit var lastLocation: Location
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
+
+    private lateinit var locationCallback: LocationCallback
+    private lateinit var locationRequest: LocationRequest
+
+    private lateinit var FiltroDist: ExtendedFloatingActionButton
+    private lateinit var FiltroTipo: ExtendedFloatingActionButton
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -102,6 +121,22 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
                 .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+
+        locationCallback = object : LocationCallback() {
+            override fun onLocationResult(p0: LocationResult) {
+                super.onLocationResult(p0)
+                lastLocation = p0.lastLocation
+                var loc = LatLng(lastLocation.latitude, lastLocation.longitude)
+                //mMap.addMarker(MarkerOptions().position(loc).title("Marker"))
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(loc, 15.0f))
+
+            }
+        }
+
+        // request creation
+        createLocationRequest()
+
         val call = request.getMarkers()
         var position: LatLng
 
@@ -111,8 +146,17 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
 
                     aMarker = response.body()!!
                     for(marker in aMarker) {
-                        position = LatLng(marker.latitude.toString().toDouble(), marker.longitude.toString().toDouble())
-                        mMap.addMarker(MarkerOptions().position(position).title(marker.titulo + " - " + marker.tipoproblema))
+
+                        if(marker.id_user==id_user){
+                            position = LatLng(marker.latitude.toString().toDouble(), marker.longitude.toString().toDouble())
+                            mMap.addMarker(MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker
+                            (BitmapDescriptorFactory.HUE_YELLOW)).alpha(0.7f).position(position).title(marker.titulo + " - " + marker.tipoproblema))
+                        }
+                        else {
+
+                            position = LatLng(marker.latitude.toString().toDouble(), marker.longitude.toString().toDouble())
+                            mMap.addMarker(MarkerOptions().position(position).title(marker.titulo + " - " + marker.tipoproblema))
+                        }
                     }
                 }
             }
@@ -121,6 +165,80 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
                 Toast.makeText(this@Mapa, "${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
+
+        val M500 =findViewById<Button>(R.id.btn500)
+        val M1000 =findViewById<Button>(R.id.btn1000)
+        val M1500 =findViewById<Button>(R.id.btn1500)
+
+        val engar =findViewById<Button>(R.id.engarrafamento)
+        val obra =findViewById<Button>(R.id.obras)
+        val acidente = findViewById<Button>(R.id.acidente)
+        val estradaf = findViewById<Button>(R.id.estradafechada)
+        val buraco = findViewById<Button>(R.id.buraco)
+
+        FiltroDist= findViewById(R.id.fabdistancias)
+        FiltroTipo= findViewById(R.id.fabtipo)
+
+        M500.visibility = View.GONE
+        M1000.visibility = View.GONE
+        M1500.visibility = View.GONE
+        engar.visibility = View.GONE
+        obra.visibility = View.GONE
+        acidente.visibility = View.GONE
+        estradaf.visibility = View.GONE
+        buraco.visibility = View.GONE
+
+        var btnDist=false
+        var btnTipo=false
+
+        FiltroDist.shrink()
+        FiltroTipo.shrink()
+
+        FiltroTipo.setOnClickListener(){
+
+                if(!btnTipo){
+                    engar.visibility = View.VISIBLE
+                    obra.visibility = View.VISIBLE
+                    acidente.visibility = View.VISIBLE
+                    estradaf.visibility = View.VISIBLE
+                    buraco.visibility = View.VISIBLE
+
+                    FiltroTipo.extend()
+                    btnTipo=true
+                }
+                else{
+                    engar.visibility = View.GONE
+                    obra.visibility = View.GONE
+                    acidente.visibility = View.GONE
+                    estradaf.visibility = View.GONE
+                    buraco.visibility = View.GONE
+
+                    FiltroTipo.shrink()
+                    btnTipo=false
+                }
+        }
+
+        FiltroDist.setOnClickListener(){
+
+            if(!btnDist){
+                M500.visibility = View.VISIBLE
+                M1000.visibility = View.VISIBLE
+                M1500.visibility = View.VISIBLE
+
+                FiltroDist.extend()
+                btnDist=true
+            }
+            else{
+                M500.visibility = View.GONE
+                M1000.visibility = View.GONE
+                M1500.visibility = View.GONE
+
+                FiltroDist.shrink()
+                btnDist=false
+            }
+        }
+
+
     }
 
     /**
@@ -136,8 +254,66 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
         mMap = googleMap
 
         // Add a marker in Sydney and move the camera
-        val sydney = LatLng(-34.0, 151.0)
-        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        setUpMap()
+    }
+
+    fun setUpMap() {
+
+        if (ActivityCompat.checkSelfPermission(this,
+                        android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                    arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), LOCATION_PERMISSION_REQUEST_CODE)
+
+            return
+        } else {
+            mMap.isMyLocationEnabled = true
+
+            fusedLocationClient.lastLocation.addOnSuccessListener(this) { location ->
+                if (location != null) {
+                    lastLocation = location
+                    Toast.makeText(this@Mapa, lastLocation.toString(), Toast.LENGTH_SHORT).show()
+                    val currentLatLng = LatLng(location.latitude, location.longitude)
+                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 12f))
+                }
+            }
+        }
+
+    }
+
+    companion object {
+        private const val LOCATION_PERMISSION_REQUEST_CODE = 1
+        private const val REQUEST_CHECK_SETTINGS = 2
+    }
+
+    private fun startLocationUpdates() {
+        if (ActivityCompat.checkSelfPermission(this,
+                        android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(this,
+                    arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
+                    LOCATION_PERMISSION_REQUEST_CODE)
+            return
+        }
+        fusedLocationClient.requestLocationUpdates(locationRequest, locationCallback, null /* Looper */)
+    }
+
+    private fun createLocationRequest() {
+        locationRequest = LocationRequest()
+        // interval specifies the rate at which your app will like to receive updates.
+        locationRequest.interval = 10000
+        locationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
+    }
+
+    override fun onPause() {
+        super.onPause()
+        fusedLocationClient.removeLocationUpdates(locationCallback)
+        Log.d("**** CM", "onPause - removeLocationUpdates")
+    }
+
+    public override fun onResume() {
+        super.onResume()
+        startLocationUpdates()
+        Log.d("**** CM", "onResume - startLocationUpdates")
     }
 }
+

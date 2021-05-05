@@ -38,7 +38,7 @@ interface Endpoints {
                         @Field("longitude") longitude:Double?,
                         @Field("latitude") latitude:Double?,
                         @Field("imagem") imagem:String?,
-                        @Field("tipoproblema") tipoproblema:String?):Call<marker>
+                        @Field("tipoproblema") tipoproblema:String?):Call<Outputmarker>
 
     @POST("/myslim/API/markerDelete/{id}")
     fun DeleteMarker(@Path("id") id:Int?): Call<Outputmarker>

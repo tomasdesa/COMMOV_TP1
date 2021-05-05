@@ -65,5 +65,18 @@
     <string name="title_activity_mapa">Map</string>
     <string name="title_activity_nav_app">NavApp</string>
     <string name="Editarproblema">Editar Problema</string>
+    <string name="msgTitulo">Apagar Problema</string>
+    <string name="msgApagar">Deseja apagar o problema?</string>
+    <string name="filtros">Filtros</string>
+    <string name="_500m">500M</string>
+    <string name="_1000m">1000M</string>
+    <string name="_1500m">1500M</string>
+    <string name="TipoProblema">Por Tipo</string>
+    <string name="Distancias">Por Distância</string>
+    <string name="obras">obras</string>
+    <string name="engarrafamento">Engarrafamento</string>
+    <string name="Buraco">Buraco</string>
+    <string name="estradaf">Estrada Fechada</string>
+    <string name="Acidente">Acidente</string>
 
 </resources>

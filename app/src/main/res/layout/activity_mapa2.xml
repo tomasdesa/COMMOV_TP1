@@ -35,6 +35,152 @@
         android:src="@drawable/ic_baseline_menu_24"
         android:id="@+id/imgmenu"/>
 
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fabdistancias"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginBottom="17dp"
+        android:clickable="true"
+        android:gravity="end"
+        android:text="@string/Distancias"
+        android:textSize="10sp"
+        app:icon="@drawable/ic_baseline_linear_scale_24" />
+
+    <Button
+        android:id="@+id/btn500"
+        android:layout_width="78dp"
+        android:layout_height="37dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="162dp"
+        android:layout_marginRight="162dp"
+        android:layout_marginBottom="21dp"
+        android:clickable="true"
+        android:gravity="end"
+        android:text="@string/_500m"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/btn1000"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="239dp"
+        android:layout_marginRight="239dp"
+        android:layout_marginBottom="21dp"
+        android:clickable="true"
+        android:gravity="end"
+        android:text="@string/_1000m"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/btn1500"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="323dp"
+        android:layout_marginRight="323dp"
+        android:layout_marginBottom="21dp"
+        android:clickable="true"
+        android:gravity="end"
+        android:text="@string/_1500m" />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fabtipo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_marginBottom="76dp"
+        android:clickable="true"
+        android:gravity="end"
+        android:text="@string/TipoProblema"
+        app:icon="@drawable/ic_baseline_report_problem_24" />
+
+    <Button
+        android:id="@+id/obras"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="9dp"
+        android:layout_marginRight="9dp"
+        android:layout_marginBottom="333dp"
+        android:clickable="true"
+        android:gravity="end"
+        android:text="@string/obras" />
+
+    <Button
+        android:id="@+id/engarrafamento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_marginBottom="182dp"
+        android:clickable="true"
+        android:gravity="end"
+        android:text="@string/engarrafamento" />
+
+    <Button
+        android:id="@+id/buraco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="9dp"
+        android:layout_marginRight="9dp"
+        android:layout_marginBottom="282dp"
+        android:clickable="true"
+        android:gravity="end"
+        android:text="@string/Buraco" />
+
+    <Button
+        android:id="@+id/estradafechada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="130dp"
+        android:clickable="true"
+        android:gravity="end"
+        android:text="@string/estradaf" />
+
+    <Button
+        android:id="@+id/acidente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="231dp"
+        android:clickable="true"
+        android:gravity="end"
+        android:text="@string/Acidente" />
+
+
 </RelativeLayout>
     <include layout="@layout/nav_drawer"></include>
 

@@ -144,16 +144,18 @@ class EditMarker : AppCompatActivity() {
 
             val call = request.updateMarker(tituloText, descricaoText, longDou, latDou, imagem, ola)
 
-            call.enqueue(object : Callback<marker> {
-                override fun onResponse(call: Call<marker>, response: Response<marker>) {
+            call.enqueue(object : Callback<Outputmarker> {
+                override fun onResponse(call: Call<Outputmarker>, response: Response<Outputmarker>) {
                     if (response.isSuccessful) {
+
+
 
                         Toast.makeText(this@EditMarker,"Está a dar",Toast.LENGTH_SHORT).show()
 
                     }
                 }
 
-                override fun onFailure(call: Call<marker>, t: Throwable) {
+                override fun onFailure(call: Call<Outputmarker>, t: Throwable) {
                     Toast.makeText(this@EditMarker, "${t.message}", Toast.LENGTH_SHORT).show()
                 }
 
@@ -163,8 +165,8 @@ class EditMarker : AppCompatActivity() {
         val Apagar = findViewById<Button>(R.id.Apagar)
         Apagar.setOnClickListener {
             val AlertaApagar = AlertDialog.Builder(this)
-            AlertaApagar.setTitle(getString(R.string.apagar_nota))
-            AlertaApagar.setMessage(getString(R.string.mensagem_apagar))
+            AlertaApagar.setTitle(getString(R.string.msgTitulo))
+            AlertaApagar.setMessage(getString(R.string.msgApagar))
             AlertaApagar.setPositiveButton(getString(R.string.sim)){ dialog: DialogInterface?, which: Int ->
 
                 val call = request.DeleteMarker(id_marker)
