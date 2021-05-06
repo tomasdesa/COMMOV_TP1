@@ -83,7 +83,7 @@
         app:rippleColor="@color/purple_700" />
 
     <Button
-        android:id="@+id/Apagar"
+        android:id="@+id/ApagarMarker"
         android:layout_width="49dp"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/button_back"

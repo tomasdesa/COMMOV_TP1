@@ -56,7 +56,7 @@ class Editar : AppCompatActivity() {
             }
         }
 
-        val Apagar = findViewById<Button>(R.id.Apagar)
+        val Apagar = findViewById<Button>(R.id.ApagarMarker)
         Apagar.setOnClickListener {
             val AlertaApagar = AlertDialog.Builder(this)
             AlertaApagar.setTitle(getString(R.string.apagar_nota))

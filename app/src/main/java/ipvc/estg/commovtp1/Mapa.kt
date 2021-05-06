@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -25,6 +26,7 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
+import com.google.android.gms.maps.model.CircleOptions
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
@@ -175,6 +177,7 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
         val acidente = findViewById<Button>(R.id.acidente)
         val estradaf = findViewById<Button>(R.id.estradafechada)
         val buraco = findViewById<Button>(R.id.buraco)
+        val defaultmarker= findViewById<Button>(R.id.Markersdefault)
 
         FiltroDist= findViewById(R.id.fabdistancias)
         FiltroTipo= findViewById(R.id.fabtipo)
@@ -187,6 +190,7 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
         acidente.visibility = View.GONE
         estradaf.visibility = View.GONE
         buraco.visibility = View.GONE
+        defaultmarker.visibility = View.GONE
 
         var btnDist=false
         var btnTipo=false
@@ -202,6 +206,7 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
                     acidente.visibility = View.VISIBLE
                     estradaf.visibility = View.VISIBLE
                     buraco.visibility = View.VISIBLE
+                    defaultmarker.visibility = View.VISIBLE
 
                     FiltroTipo.extend()
                     btnTipo=true
@@ -212,6 +217,7 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
                     acidente.visibility = View.GONE
                     estradaf.visibility = View.GONE
                     buraco.visibility = View.GONE
+                    defaultmarker.visibility = View.GONE
 
                     FiltroTipo.shrink()
                     btnTipo=false
@@ -237,6 +243,326 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
                 btnDist=false
             }
         }
+
+        M500.setOnClickListener(){
+
+            mMap.clear()
+            val call = request.getMarkers()
+            var position: LatLng
+
+            call.enqueue(object : Callback<List<marker>> {
+                override fun onResponse(call: Call<List<marker>>, response: Response<List<marker>>) {
+                    if(response.isSuccessful) {
+
+                        aMarker = response.body()!!
+                        for(marker in aMarker) {
+                            var dist= calculateDistance(marker.latitude.toDouble(), marker.longitude.toDouble(), lastLocation.latitude, lastLocation.longitude)
+                            val centro = LatLng(lastLocation.latitude,lastLocation.longitude)
+                            mMap.addCircle(
+                                    CircleOptions()
+                                            .center(centro)
+                                            .radius(500.0)
+                                            .strokeWidth(3f)
+                                            .strokeColor(Color.BLUE)
+                                            .fillColor(Color.argb(20,50,50,150))
+                            )
+                            if(dist <= 500){
+                                if(marker.id_user==id_user){
+                                    position = LatLng(marker.latitude.toString().toDouble(), marker.longitude.toString().toDouble())
+                                    mMap.addMarker(MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker
+                                    (BitmapDescriptorFactory.HUE_YELLOW)).alpha(1f).position(position).title(marker.titulo + " - " + marker.tipoproblema))
+                                }
+                                else {
+
+                                    position = LatLng(marker.latitude.toString().toDouble(), marker.longitude.toString().toDouble())
+                                    mMap.addMarker(MarkerOptions().position(position).title(marker.titulo + " - " + marker.tipoproblema))
+                                }
+                            }
+
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<List<marker>>, t: Throwable) {
+                    Toast.makeText(this@Mapa, "${t.message}", Toast.LENGTH_SHORT).show()
+                }
+            })
+
+        }
+        M1000.setOnClickListener(){
+            mMap.clear()
+            val call = request.getMarkers()
+            var position: LatLng
+
+            call.enqueue(object : Callback<List<marker>> {
+                override fun onResponse(call: Call<List<marker>>, response: Response<List<marker>>) {
+                    if(response.isSuccessful) {
+
+                        aMarker = response.body()!!
+                        for(marker in aMarker) {
+                            var dist= calculateDistance(marker.latitude.toDouble(), marker.longitude.toDouble(), lastLocation.latitude, lastLocation.longitude)
+                            val centro = LatLng(lastLocation.latitude,lastLocation.longitude)
+                            mMap.addCircle(
+                                    CircleOptions()
+                                            .center(centro)
+                                            .radius(1000.0)
+                                            .strokeWidth(3f)
+                                            .strokeColor(Color.BLUE)
+                                            .fillColor(Color.argb(20,50,50,150))
+                            )
+                            if(dist <= 1000){
+                                if(marker.id_user==id_user){
+                                    position = LatLng(marker.latitude.toString().toDouble(), marker.longitude.toString().toDouble())
+                                    mMap.addMarker(MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker
+                                    (BitmapDescriptorFactory.HUE_YELLOW)).alpha(1f).position(position).title(marker.titulo + " - " + marker.tipoproblema))
+                                }
+                                else {
+
+                                    position = LatLng(marker.latitude.toString().toDouble(), marker.longitude.toString().toDouble())
+                                    mMap.addMarker(MarkerOptions().position(position).title(marker.titulo + " - " + marker.tipoproblema))
+                                }
+                            }
+
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<List<marker>>, t: Throwable) {
+                    Toast.makeText(this@Mapa, "${t.message}", Toast.LENGTH_SHORT).show()
+                }
+            })
+        }
+        M1500.setOnClickListener(){
+            mMap.clear()
+            val call = request.getMarkers()
+            var position: LatLng
+
+            call.enqueue(object : Callback<List<marker>> {
+                override fun onResponse(call: Call<List<marker>>, response: Response<List<marker>>) {
+                    if(response.isSuccessful) {
+
+                        aMarker = response.body()!!
+                        for(marker in aMarker) {
+                            var dist= calculateDistance(marker.latitude.toDouble(), marker.longitude.toDouble(), lastLocation.latitude, lastLocation.longitude)
+                            val centro = LatLng(lastLocation.latitude,lastLocation.longitude)
+                            mMap.addCircle(
+                                    CircleOptions()
+                                            .center(centro)
+                                            .radius(1500.0)
+                                            .strokeWidth(3f)
+                                            .strokeColor(Color.BLUE)
+                                            .fillColor(Color.argb(20,50,50,150))
+                            )
+                            if(dist <= 1500){
+                                if(marker.id_user==id_user){
+                                    position = LatLng(marker.latitude.toString().toDouble(), marker.longitude.toString().toDouble())
+                                    mMap.addMarker(MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker
+                                    (BitmapDescriptorFactory.HUE_YELLOW)).alpha(1f).position(position).title(marker.titulo + " - " + marker.tipoproblema))
+                                }
+                                else {
+
+                                    position = LatLng(marker.latitude.toString().toDouble(), marker.longitude.toString().toDouble())
+                                    mMap.addMarker(MarkerOptions().position(position).title(marker.titulo + " - " + marker.tipoproblema))
+                                }
+                            }
+
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<List<marker>>, t: Throwable) {
+                    Toast.makeText(this@Mapa, "${t.message}", Toast.LENGTH_SHORT).show()
+                }
+            })
+        }
+        defaultmarker.setOnClickListener() {
+            mMap.clear()
+            val call = request.getMarkers()
+            var position: LatLng
+
+            call.enqueue(object : Callback<List<marker>> {
+                override fun onResponse(call: Call<List<marker>>, response: Response<List<marker>>) {
+                    if(response.isSuccessful) {
+
+                        aMarker = response.body()!!
+                        for(marker in aMarker) {
+
+                            if(marker.id_user==id_user){
+                                position = LatLng(marker.latitude.toString().toDouble(), marker.longitude.toString().toDouble())
+                                mMap.addMarker(MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker
+                                (BitmapDescriptorFactory.HUE_YELLOW)).alpha(0.7f).position(position).title(marker.titulo + " - " + marker.tipoproblema))
+                            }
+                            else {
+
+                                position = LatLng(marker.latitude.toString().toDouble(), marker.longitude.toString().toDouble())
+                                mMap.addMarker(MarkerOptions().position(position).title(marker.titulo + " - " + marker.tipoproblema))
+                            }
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<List<marker>>, t: Throwable) {
+                    Toast.makeText(this@Mapa, "${t.message}", Toast.LENGTH_SHORT).show()
+                }
+            })
+        }
+       engar.setOnClickListener(){
+           mMap.clear()
+           val call = request.getMarkers()
+           var position: LatLng
+
+           call.enqueue(object : Callback<List<marker>> {
+               override fun onResponse(call: Call<List<marker>>, response: Response<List<marker>>) {
+                   if(response.isSuccessful) {
+
+                       aMarker = response.body()!!
+                       for(marker in aMarker) {
+                           if (marker.tipoproblema == "engarrafamento") {
+                               if (marker.id_user == id_user) {
+                                   position = LatLng(marker.latitude.toString().toDouble(), marker.longitude.toString().toDouble())
+                                   mMap.addMarker(MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker
+                                   (BitmapDescriptorFactory.HUE_YELLOW)).alpha(1f).position(position).title(marker.titulo + " - " + marker.tipoproblema))
+                               } else {
+
+                                   position = LatLng(marker.latitude.toString().toDouble(), marker.longitude.toString().toDouble())
+                                   mMap.addMarker(MarkerOptions().position(position).title(marker.titulo + " - " + marker.tipoproblema))
+                               }
+                           }
+                       }
+                   }
+               }
+
+               override fun onFailure(call: Call<List<marker>>, t: Throwable) {
+                   Toast.makeText(this@Mapa, "${t.message}", Toast.LENGTH_SHORT).show()
+               }
+           })
+
+        }
+        obra.setOnClickListener(){
+            mMap.clear()
+            val call = request.getMarkers()
+            var position: LatLng
+
+            call.enqueue(object : Callback<List<marker>> {
+                override fun onResponse(call: Call<List<marker>>, response: Response<List<marker>>) {
+                    if(response.isSuccessful) {
+
+                        aMarker = response.body()!!
+                        for(marker in aMarker) {
+                            if (marker.tipoproblema == "obras") {
+                                if (marker.id_user == id_user) {
+                                    position = LatLng(marker.latitude.toString().toDouble(), marker.longitude.toString().toDouble())
+                                    mMap.addMarker(MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker
+                                    (BitmapDescriptorFactory.HUE_YELLOW)).alpha(1f).position(position).title(marker.titulo + " - " + marker.tipoproblema))
+                                } else {
+
+                                    position = LatLng(marker.latitude.toString().toDouble(), marker.longitude.toString().toDouble())
+                                    mMap.addMarker(MarkerOptions().position(position).title(marker.titulo + " - " + marker.tipoproblema))
+                                }
+                            }
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<List<marker>>, t: Throwable) {
+                    Toast.makeText(this@Mapa, "${t.message}", Toast.LENGTH_SHORT).show()
+                }
+            })
+        }
+        acidente.setOnClickListener(){
+            mMap.clear()
+            val call = request.getMarkers()
+            var position: LatLng
+
+            call.enqueue(object : Callback<List<marker>> {
+                override fun onResponse(call: Call<List<marker>>, response: Response<List<marker>>) {
+                    if(response.isSuccessful) {
+
+                        aMarker = response.body()!!
+                        for(marker in aMarker) {
+                            if (marker.tipoproblema == "acidente") {
+                                if (marker.id_user == id_user) {
+                                    position = LatLng(marker.latitude.toString().toDouble(), marker.longitude.toString().toDouble())
+                                    mMap.addMarker(MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker
+                                    (BitmapDescriptorFactory.HUE_YELLOW)).alpha(1f).position(position).title(marker.titulo + " - " + marker.tipoproblema))
+                                } else {
+
+                                    position = LatLng(marker.latitude.toString().toDouble(), marker.longitude.toString().toDouble())
+                                    mMap.addMarker(MarkerOptions().position(position).title(marker.titulo + " - " + marker.tipoproblema))
+                                }
+                            }
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<List<marker>>, t: Throwable) {
+                    Toast.makeText(this@Mapa, "${t.message}", Toast.LENGTH_SHORT).show()
+                }
+            })
+        }
+        estradaf.setOnClickListener(){
+            mMap.clear()
+            val call = request.getMarkers()
+            var position: LatLng
+
+            call.enqueue(object : Callback<List<marker>> {
+                override fun onResponse(call: Call<List<marker>>, response: Response<List<marker>>) {
+                    if(response.isSuccessful) {
+
+                        aMarker = response.body()!!
+                        for(marker in aMarker) {
+                            if (marker.tipoproblema == "estrada fechada") {
+                                if (marker.id_user == id_user) {
+                                    position = LatLng(marker.latitude.toString().toDouble(), marker.longitude.toString().toDouble())
+                                    mMap.addMarker(MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker
+                                    (BitmapDescriptorFactory.HUE_YELLOW)).alpha(1f).position(position).title(marker.titulo + " - " + marker.tipoproblema))
+                                } else {
+
+                                    position = LatLng(marker.latitude.toString().toDouble(), marker.longitude.toString().toDouble())
+                                    mMap.addMarker(MarkerOptions().position(position).title(marker.titulo + " - " + marker.tipoproblema))
+                                }
+                            }
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<List<marker>>, t: Throwable) {
+                    Toast.makeText(this@Mapa, "${t.message}", Toast.LENGTH_SHORT).show()
+                }
+            })
+        }
+        buraco.setOnClickListener(){
+            mMap.clear()
+            val call = request.getMarkers()
+            var position: LatLng
+
+            call.enqueue(object : Callback<List<marker>> {
+                override fun onResponse(call: Call<List<marker>>, response: Response<List<marker>>) {
+                    if(response.isSuccessful) {
+
+                        aMarker = response.body()!!
+                        for(marker in aMarker) {
+                            if (marker.tipoproblema == "buracos") {
+                                if (marker.id_user == id_user) {
+                                    position = LatLng(marker.latitude.toString().toDouble(), marker.longitude.toString().toDouble())
+                                    mMap.addMarker(MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker
+                                    (BitmapDescriptorFactory.HUE_YELLOW)).alpha(1f).position(position).title(marker.titulo + " - " + marker.tipoproblema))
+                                } else {
+
+                                    position = LatLng(marker.latitude.toString().toDouble(), marker.longitude.toString().toDouble())
+                                    mMap.addMarker(MarkerOptions().position(position).title(marker.titulo + " - " + marker.tipoproblema))
+                                }
+                            }
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<List<marker>>, t: Throwable) {
+                    Toast.makeText(this@Mapa, "${t.message}", Toast.LENGTH_SHORT).show()
+                }
+            })
+        }
+
 
 
     }
@@ -315,5 +641,14 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
         startLocationUpdates()
         Log.d("**** CM", "onResume - startLocationUpdates")
     }
+
+
+    fun calculateDistance(lat1: Double, lng1: Double, lat2: Double, lng2: Double): Float {
+        val results = FloatArray(1)
+        Location.distanceBetween(lat1, lng1, lat2, lng2, results)
+        // distance in meter
+        return results[0]
+    }
+
 }
 

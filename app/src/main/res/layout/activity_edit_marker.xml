@@ -7,177 +7,143 @@
     tools:context=".AddProblema"
     android:background="@drawable/novo_gradient">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="270dp"
+        android:layout_height="90dp"
+
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginRight="0dp">
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="68dp"
+        android:layout_marginRight="68dp"
+        android:layout_marginBottom="535dp"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:text="@string/Editarproblema"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/buttonLabel"
+        android:textSize="40sp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+    <Button
+        android:id="@+id/button_back"
+        android:layout_width="43dp"
+        android:layout_height="44dp"
+        android:layout_alignTop="@+id/textView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="21dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="-5dp"
+        android:layout_marginEnd="75dp"
+        android:layout_marginRight="75dp"
+        android:layout_marginBottom="586dp"
+        android:background="@drawable/ic_baseline_arrow_back_ios_24"
+        android:src="@drawable/ic_baseline_arrow_back_ios_24"
+        app:backgroundTint="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.0" />
 
-            <Button
-                android:id="@+id/Apagar"
-                android:layout_width="49dp"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/button_back"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginStart="340dp"
-                android:layout_marginLeft="340dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginEnd="21dp"
-                android:layout_marginRight="21dp"
-                android:background="@drawable/ic_baseline_delete_24"
-                app:backgroundTint="@color/buttonLabel" />
+    <Button
+        android:id="@+id/ApagarMarker"
+        android:layout_width="49dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="-1dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginRight="9dp"
+        android:layout_marginBottom="578dp"
+        android:background="@drawable/ic_baseline_delete_24"
+        app:backgroundTint="@color/buttonLabel" />
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="390dp"
-                android:layout_height="74dp"
-                android:layout_alignParentTop="false"
-                android:layout_centerHorizontal="false"
-                android:layout_marginStart="14dp"
-                android:layout_marginLeft="14dp"
-                android:layout_marginTop="23dp"
+    <EditText
+        android:id="@+id/tituloedit"
+        android:layout_width="385dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginBottom="444dp"
+        android:fontFamily="sans-serif-light"
+        android:hint="@string/insertTitulo"
+        android:inputType="textAutoComplete"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="18sp" />
 
-                android:layout_marginEnd="159dp"
-                android:layout_marginRight="159dp"
-                android:fontFamily="sans-serif-black"
-                android:gravity="center"
-                android:text="@string/Editarproblema"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textColor="@color/buttonLabel"
-                android:textSize="40sp" />
+    <EditText
+        android:id="@+id/descricaoedit"
+        android:layout_width="378dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="17dp"
+        android:layout_marginLeft="17dp"
+        android:layout_marginBottom="387dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="@string/insertDescricao"
+        android:inputType="textMultiLine"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black" />
 
-            <EditText
-                android:id="@+id/tituloedit"
-                android:layout_width="397dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="0dp"
-                android:layout_marginBottom="10dp"
-                android:fontFamily="sans-serif-light"
-                android:hint="@string/insertTitulo"
-                android:inputType="textAutoComplete"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
-                android:textSize="18sp" />
+    <TextView
+        android:id="@+id/textView2edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="316dp"
+        android:text="@string/TipoProb"
+        android:textColor="@color/black"
+        android:textSize="20dp" />
 
-            <EditText
-                android:id="@+id/descricaoedit"
-                android:layout_width="378dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginBottom="10dp"
-                android:ems="10"
-                android:gravity="start|top"
-                android:hint="@string/insertDescricao"
-                android:inputType="textMultiLine"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black" />
+    <Spinner
+        android:id="@+id/spinner2edit"
+        android:layout_width="320dp"
+        android:layout_height="60dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginEnd="49dp"
+        android:layout_marginRight="49dp"
+        android:layout_marginBottom="226dp"
+        android:background="@color/colorPrimary"
+        android:entries="@array/tipoProb" />
 
-            <EditText
-                android:id="@+id/longitudeedit"
-                android:layout_width="378dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="0dp"
-                android:layout_marginBottom="10dp"
-                android:fontFamily="sans-serif-light"
-                android:hint="@string/InsertLong"
-                android:inputType="textAutoComplete"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
-                android:textSize="18sp" />
+    <Button
+        android:id="@+id/guardar1edit"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="96dp"
+        android:layout_marginRight="96dp"
+        android:layout_marginBottom="65dp"
+        android:text="@string/guardar" />
 
-            <EditText
-                android:id="@+id/latitudeedit"
-                android:layout_width="376dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="0dp"
-                android:layout_marginBottom="10dp"
-                android:fontFamily="sans-serif-light"
-                android:hint="@string/insertLat"
-                android:inputType="textAutoComplete"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
-                android:textSize="18sp" />
-
-            <Button
-                android:id="@+id/coordenadasedit"
-                android:layout_width="229dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="100dp"
-                android:layout_marginLeft="100dp"
-                android:layout_marginBottom="10dp"
-                android:text="@string/coords" />
-
-            <TextView
-                android:id="@+id/textView2edit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginBottom="10dp"
-                android:text="@string/TipoProb"
-                android:textColor="@color/black"
-                android:textSize="20dp" />
-
-            <Spinner
-                android:id="@+id/spinner2edit"
-                android:layout_width="320dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="50dp"
-                android:layout_marginLeft="50dp"
-                android:layout_marginBottom="10dp"
-                android:background="@color/colorPrimary"
-                android:entries="@array/tipoProb" />
-
-            <Button
-                android:id="@+id/imagemedit"
-                android:layout_width="225dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="100dp"
-                android:layout_marginLeft="100dp"
-                android:layout_marginBottom="10dp"
-                android:text="@string/fotoProb" />
-
-            <ImageView
-                android:id="@+id/imageViewedit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                tools:srcCompat="@tools:sample/avatars" />
-
-            <Button
-                android:id="@+id/guardar1edit"
-                android:layout_width="225dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="100dp"
-                android:layout_marginLeft="100dp"
-                android:text="@string/guardar" />
-
-        </LinearLayout>
-    </ScrollView>
 
 </RelativeLayout>
 

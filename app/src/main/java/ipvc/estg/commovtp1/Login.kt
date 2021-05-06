@@ -33,7 +33,7 @@ class Login : AppCompatActivity() {
         val usernameText = findViewById<TextView>(R.id.username)
 
         val passwordText = findViewById<TextView>(R.id.password)
-        val teste = findViewById<TextView>(R.id.teste)
+
 
 
 
@@ -80,7 +80,7 @@ class Login : AppCompatActivity() {
             val user = usernameText.text.toString()
             val pass = passwordText.text.toString()
 
-            teste.text=user
+
 
             if(user == "") {
                 Toast.makeText(
@@ -121,6 +121,12 @@ class Login : AppCompatActivity() {
 
                 })
             }
+        }
+
+        val notas = findViewById<Button>(R.id.Notasl)
+        notas.setOnClickListener(){
+            val intent = Intent(this, Notas::class.java)
+            startActivity(intent)
         }
     }
     fun markerInicio(marker: String, user:String?) {

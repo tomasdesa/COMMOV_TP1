@@ -1,16 +1,16 @@
 <resources>
     <string name="app_name">COMMOV TP1</string>
-    <string name="title_activity_inicial">Inicial</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
+    <string name="title_activity_inicial" translatable="false">Inicial</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+    <string name="nav_header_title" translatable="false">Android Studio</string>
+    <string name="nav_header_subtitle" translatable="false">android.studio@android.com</string>
+    <string name="nav_header_desc" translatable="false">Navigation header</string>
+    <string name="action_settings" translatable="false">Settings</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_home" translatable="false">Home</string>
+    <string name="menu_gallery" translatable="false">Gallery</string>
+    <string name="menu_slideshow" translatable="false">Slideshow</string>
 
 
     <string name="notas">Notas</string>
@@ -18,7 +18,7 @@
     <string name="adicionar_notas">Adicionar Nota</string>
     <string name="guardar">Guardar</string>
 
-    <string name="hint_word">Word...</string>
+    <string name="hint_word" translatable="false">Word...</string>
     <string name="button_save">Guardar</string>
     <string name="empty_not_saved">Nota não foi guardada, campos vazios </string>
     <string name="add_word">Add word</string>
@@ -53,24 +53,24 @@
         <item>engarrafamento</item>
     </string-array>
 
-    <string name="preference_file_key">file1</string>
-    <string name="button">false</string>
-    <string name="username">username</string>
-    <string name="password">password</string>
+    <string name="preference_file_key" translatable="false">file1</string>
+    <string name="button" translatable="false">false</string>
+    <string name="username" translatable="false">username</string>
+    <string name="password" translatable="false">password</string>
     <string name="my_account">A minha conta</string>
-    <string name="home">Home</string>
-    <string name="logout">Log Out</string>
+    <string name="home" translatable="false">Home</string>
+    <string name="logout" translatable="false">Log Out</string>
     <string name="Bemvindo">"Bem Vindo "</string>
 
-    <string name="title_activity_mapa">Map</string>
-    <string name="title_activity_nav_app">NavApp</string>
+    <string name="title_activity_mapa" translatable="false">Map</string>
+    <string name="title_activity_nav_app" translatable="false">NavApp</string>
     <string name="Editarproblema">Editar Problema</string>
     <string name="msgTitulo">Apagar Problema</string>
     <string name="msgApagar">Deseja apagar o problema?</string>
     <string name="filtros">Filtros</string>
-    <string name="_500m">500M</string>
-    <string name="_1000m">1000M</string>
-    <string name="_1500m">1500M</string>
+    <string name="_500m" translatable="false">500M</string>
+    <string name="_1000m" translatable="false">1000M</string>
+    <string name="_1500m" translatable="false">1500M</string>
     <string name="TipoProblema">Por Tipo</string>
     <string name="Distancias">Por Distância</string>
     <string name="obras">obras</string>
@@ -78,5 +78,11 @@
     <string name="Buraco">Buraco</string>
     <string name="estradaf">Estrada Fechada</string>
     <string name="Acidente">Acidente</string>
+    <string name="markerdefault" translatable="false">Default</string>
+    <string name="guardar_utilizador">Guardar utilizador</string>
+    <string name="inserir_username">Inserir Username</string>
+    <string name="inserir_password">Inserir Password</string>
+    <string name="apagar_marker">Apagar Problema</string>
+    <string name="mensagem_apagarProblema">Deseja apagar o Problema?</string>
 
 </resources>

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
 import android.content.Intent
+import android.widget.Button
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -53,7 +54,11 @@ class Marker : AppCompatActivity(), MarkerAdapter.OnMarkerClickListener {
             markerInicio(idUser)
         }
 
+        val button_back=findViewById<Button>(R.id.button_back)
+        button_back.setOnClickListener{
 
+            finish()
+        }
 
     }
 
@@ -61,12 +66,17 @@ class Marker : AppCompatActivity(), MarkerAdapter.OnMarkerClickListener {
         val intent = Intent(this, AddProblema::class.java)
         intent.putExtra("id_user", marker)
         startActivity(intent)
+        finish()
     }
     override fun onMarkerClick(marker: marker, position: Int) {
+        val idUser = getIntent().getStringExtra("id_user")
         //Toast.makeText(this, nota.titulo, Toast.LENGTH_SHORT).show()
         val intent = Intent(this, EditMarker::class.java)
         intent.putExtra("id", marker.id)
+        intent.putExtra("id_user",idUser )
         startActivity(intent)
+        finish()
     }
+
 
 }

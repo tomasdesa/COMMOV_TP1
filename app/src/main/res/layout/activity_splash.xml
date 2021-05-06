@@ -22,13 +22,14 @@
 
     <ImageView
         android:id="@+id/fundbranco"
-        android:layout_width="371dp"
-        android:layout_height="406dp"
+        android:layout_width="386dp"
+        android:layout_height="517dp"
+        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/fundo"
         app:layout_constraintEnd_toEndOf="@+id/fundo"
+        app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="@+id/fundo"
-        app:layout_constraintTop_toTopOf="@+id/fundo"
-        android:background="@color/white"/>
+        app:layout_constraintTop_toTopOf="@+id/fundo" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/splash1"
@@ -38,11 +39,27 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
 
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
 
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.344"
         app:lottie_autoPlay="true"
         app:lottie_url="https://assets3.lottiefiles.com/packages/lf20_HqofMq.json" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="112dp"
+        android:layout_marginRight="112dp"
+        android:layout_marginBottom="140dp"
+        android:text="ProbMapp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/black"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
