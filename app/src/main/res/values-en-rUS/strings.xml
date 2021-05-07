@@ -47,4 +47,8 @@
     <string name="mensagem_apagarProblema">Do you want to delete the Problem?</string>
     <string name="TipoProbview">Problem Type</string>
     <string name="VerProblema">View Problem</string>
+    <string name="addtit">Title field empty</string>
+    <string name="addDes">Description field empty</string>
+    <string name="addLa">Latitude field empty</string>
+    <string name="addLon">Longitude field empty</string>
 </resources>
