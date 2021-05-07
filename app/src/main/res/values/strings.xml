@@ -84,5 +84,7 @@
     <string name="inserir_password">Inserir Password</string>
     <string name="apagar_marker">Apagar Problema</string>
     <string name="mensagem_apagarProblema">Deseja apagar o Problema?</string>
+    <string name="TipoProbview">Tipo de Problema</string>
+    <string name="VerProblema">Ver Problema</string>
 
 </resources>

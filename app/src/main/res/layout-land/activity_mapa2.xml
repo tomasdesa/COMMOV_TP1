@@ -30,26 +30,10 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="640dp"
-        android:layout_marginRight="640dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="652dp"
+        android:layout_marginRight="652dp"
         android:src="@drawable/ic_baseline_menu_24" />
-
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/fabdistancias"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="0dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginBottom="76dp"
-        android:clickable="true"
-        android:gravity="end"
-        android:text="@string/Distancias"
-        android:textSize="14sp"
-        app:icon="@drawable/ic_baseline_linear_scale_24" />
 
     <Button
         android:id="@+id/btn500"
@@ -58,12 +42,43 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="119dp"
-        android:layout_marginRight="119dp"
-        android:layout_marginBottom="19dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginRight="13dp"
+        android:layout_marginBottom="174dp"
         android:clickable="true"
         android:gravity="end"
         android:text="@string/_500m"
+        android:textSize="14sp" />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fabdistancias"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_marginBottom="122dp"
+        android:clickable="true"
+        android:gravity="end"
+        android:text="@string/Distancias"
+        android:textSize="14sp"
+        app:icon="@drawable/ic_baseline_linear_scale_24" />
+
+    <Button
+        android:id="@+id/btn1000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_marginBottom="228dp"
+        android:clickable="true"
+        android:gravity="end"
+        android:text="@string/_1000m"
         android:textSize="14sp" />
 
     <Button
@@ -73,55 +88,12 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="310dp"
-        android:layout_marginRight="310dp"
-        android:layout_marginBottom="19dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_marginBottom="281dp"
         android:clickable="true"
         android:gravity="end"
         android:text="@string/_1500m" />
-
-    <Button
-        android:id="@+id/btn1000"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="209dp"
-        android:layout_marginRight="209dp"
-        android:layout_marginBottom="19dp"
-        android:clickable="true"
-        android:gravity="end"
-        android:text="@string/_1000m"
-        android:textSize="14sp" />
-
-    <Button
-        android:id="@+id/estradafechada"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginBottom="193dp"
-        android:clickable="true"
-        android:gravity="end"
-        android:text="@string/estradaf" />
-
-    <Button
-        android:id="@+id/obras"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="9dp"
-        android:layout_marginRight="9dp"
-        android:layout_marginBottom="397dp"
-        android:clickable="true"
-        android:gravity="end"
-        android:text="@string/obras" />
 
     <Button
         android:id="@+id/Markersdefault"
@@ -130,40 +102,12 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="1dp"
-        android:layout_marginRight="1dp"
-        android:layout_marginBottom="449dp"
+        android:layout_marginEnd="244dp"
+        android:layout_marginRight="244dp"
+        android:layout_marginBottom="66dp"
         android:clickable="true"
         android:gravity="end"
         android:text="@string/markerdefault" />
-
-    <Button
-        android:id="@+id/buraco"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="9dp"
-        android:layout_marginRight="9dp"
-        android:layout_marginBottom="345dp"
-        android:clickable="true"
-        android:gravity="end"
-        android:text="@string/Buraco" />
-
-    <Button
-        android:id="@+id/engarrafamento"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginBottom="246dp"
-        android:clickable="true"
-        android:gravity="end"
-        android:text="@string/engarrafamento" />
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fabtipo"
@@ -172,13 +116,27 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="2dp"
-        android:layout_marginRight="2dp"
-        android:layout_marginBottom="140dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="71dp"
         android:clickable="true"
         android:gravity="end"
         android:text="@string/TipoProblema"
         app:icon="@drawable/ic_baseline_report_problem_24" />
+
+    <Button
+        android:id="@+id/estradafechada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginBottom="19dp"
+        android:clickable="true"
+        android:gravity="end"
+        android:text="@string/estradaf" />
 
     <Button
         android:id="@+id/acidente"
@@ -187,12 +145,54 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="7dp"
-        android:layout_marginRight="7dp"
-        android:layout_marginBottom="294dp"
+        android:layout_marginEnd="458dp"
+        android:layout_marginRight="458dp"
+        android:layout_marginBottom="20dp"
         android:clickable="true"
         android:gravity="end"
         android:text="@string/Acidente" />
+
+    <Button
+        android:id="@+id/buraco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="567dp"
+        android:layout_marginRight="567dp"
+        android:layout_marginBottom="20dp"
+        android:clickable="true"
+        android:gravity="end"
+        android:text="@string/Buraco" />
+
+    <Button
+        android:id="@+id/obras"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="155dp"
+        android:layout_marginRight="155dp"
+        android:layout_marginBottom="67dp"
+        android:clickable="true"
+        android:gravity="end"
+        android:text="@string/obras" />
+
+    <Button
+        android:id="@+id/engarrafamento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="279dp"
+        android:layout_marginRight="279dp"
+        android:layout_marginBottom="19dp"
+        android:clickable="true"
+        android:gravity="end"
+        android:text="@string/engarrafamento" />
 
 
 </RelativeLayout>

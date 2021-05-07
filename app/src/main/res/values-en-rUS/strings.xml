@@ -45,4 +45,6 @@
     <string name="inserir_password">Insert Password</string>
     <string name="apagar_marker">Delete Problema</string>
     <string name="mensagem_apagarProblema">Do you want to delete the Problem?</string>
+    <string name="TipoProbview">Problem Type</string>
+    <string name="VerProblema">View Problem</string>
 </resources>
