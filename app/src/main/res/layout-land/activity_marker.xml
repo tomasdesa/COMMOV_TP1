@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/novo_gradient"
+    tools:context=".Marker">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclermarker"
+        android:layout_width="match_parent"
+        android:layout_height="291dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="0dp"
+        android:paddingBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="1.0"
+        tools:listitem="@layout/recyclermarker" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="27dp"
+        android:layout_marginRight="27dp"
+        android:layout_marginBottom="19dp"
+        android:background="@drawable/ic_baseline_add_24"
+        android:contentDescription="Adcionar nova Nota"
+        android:src="@drawable/ic_baseline_add_24"
+        app:backgroundTint="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:rippleColor="@color/buttonLabel" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="82dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="14dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="6dp"
+
+        android:layout_marginEnd="159dp"
+        android:layout_marginRight="159dp"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:text="@string/Problemas"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/buttonLabel"
+        android:textSize="40sp" />
+
+    <Button
+        android:id="@+id/button_back"
+        android:layout_width="100dp"
+        android:layout_height="67dp"
+        android:layout_alignTop="@+id/textView"
+        android:layout_alignBottom="@+id/textView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="-5dp"
+        android:layout_marginEnd="611dp"
+        android:layout_marginRight="611dp"
+        android:layout_marginBottom="19dp"
+        android:background="@drawable/ic_baseline_arrow_back_ios_24"
+        android:src="@drawable/ic_baseline_arrow_back_ios_24"
+        app:backgroundTint="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+</RelativeLayout>
