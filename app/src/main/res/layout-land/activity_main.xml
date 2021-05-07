@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/novo_gradient"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="82dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="14dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="-2dp"
+
+        android:layout_marginEnd="159dp"
+        android:layout_marginRight="159dp"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:text="@string/adicionar_nota"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/buttonLabel"
+        android:textSize="40sp" />
+
+    <EditText
+        android:id="@+id/city"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/country"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="341dp"
+        android:layout_marginRight="341dp"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="sans-serif-light"
+        android:hint="@string/insertTitulo"
+        android:inputType="textAutoComplete"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/country"
+        android:layout_width="351dp"
+        android:layout_height="221dp"
+        android:layout_above="@+id/button_save"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="358dp"
+        android:layout_marginRight="358dp"
+        android:layout_marginBottom="-99dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="@string/insertDescricao"
+        android:inputType="textMultiLine" />
+
+    <Button
+        android:id="@+id/button_save"
+        android:layout_width="318dp"
+        android:layout_height="59dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="7dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginBottom="73dp"
+        android:background="@color/purple_700"
+        android:text="@string/guardar" />
+
+    <Button
+        android:id="@+id/button_back"
+        android:layout_width="85dp"
+        android:layout_height="63dp"
+        android:layout_alignTop="@+id/textView"
+        android:layout_alignBottom="@+id/textView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="174dp"
+        android:layout_marginRight="174dp"
+        android:layout_marginBottom="9dp"
+        android:layout_toStartOf="@+id/textView"
+        android:layout_toLeftOf="@+id/textView"
+        android:background="@drawable/ic_baseline_arrow_back_ios_24"
+        android:src="@drawable/ic_baseline_arrow_back_ios_24"
+        app:backgroundTint="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.0" />
+
+</RelativeLayout>
