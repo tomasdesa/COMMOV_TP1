@@ -86,5 +86,9 @@
     <string name="mensagem_apagarProblema">Deseja apagar o Problema?</string>
     <string name="TipoProbview">Tipo de Problema</string>
     <string name="VerProblema">Ver Problema</string>
+    <string name="addtit">Campo titulo vazio</string>
+    <string name="addDes">Campo Descrição vazio</string>
+    <string name="addLa">Campo Latitude vazio</string>
+    <string name="addLon">Campo longitude vazio</string>
 
 </resources>

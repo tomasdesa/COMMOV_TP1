@@ -61,6 +61,7 @@ class EditMarker : AppCompatActivity() {
 
         guardar.setOnClickListener() {
 
+
             var ola = "ola"
 
             val spinner: Spinner = findViewById(R.id.spinner2edit)
@@ -75,25 +76,39 @@ class EditMarker : AppCompatActivity() {
 
             val descricao = findViewById<TextView>(R.id.descricaoedit)
             val descricaoText = descricao.text.toString()
+            if(tituloText == "") {
+                Toast.makeText(
+                        applicationContext,
+                        getString(R.string.addtit),
+                        Toast.LENGTH_SHORT).show()
 
+            }
+            else if(descricaoText == "") {
+                Toast.makeText(
+                        applicationContext,
+                        getString(R.string.addDes),
+                        Toast.LENGTH_SHORT).show()
+            }
+            else {
 
-            val call = request.updateMarker(idM, tituloText, descricaoText, ola)
+                val call = request.updateMarker(idM, tituloText, descricaoText, ola)
 
-            call.enqueue(object : Callback<Outputmarker> {
-                override fun onResponse(call: Call<Outputmarker>, response: Response<Outputmarker>) {
-                    if (response.isSuccessful) {
+                call.enqueue(object : Callback<Outputmarker> {
+                    override fun onResponse(call: Call<Outputmarker>, response: Response<Outputmarker>) {
+                        if (response.isSuccessful) {
 
-                        val c: Outputmarker = response.body()!!
-                        Toast.makeText(this@EditMarker,c.MSG, Toast.LENGTH_SHORT).show()
-                        markerInicio(id_user)
+                            val c: Outputmarker = response.body()!!
+                            Toast.makeText(this@EditMarker, c.MSG, Toast.LENGTH_SHORT).show()
+                            markerInicio(id_user)
+                        }
                     }
-                }
 
-                override fun onFailure(call: Call<Outputmarker>, t: Throwable) {
-                    Toast.makeText(this@EditMarker, "${t.message}", Toast.LENGTH_SHORT).show()
-                }
+                    override fun onFailure(call: Call<Outputmarker>, t: Throwable) {
+                        Toast.makeText(this@EditMarker, "${t.message}", Toast.LENGTH_SHORT).show()
+                    }
 
-            })
+                })
+            }
 
 
         }

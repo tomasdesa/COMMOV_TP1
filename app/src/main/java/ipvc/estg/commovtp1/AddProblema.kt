@@ -102,18 +102,28 @@ class AddProblema : AppCompatActivity() {
         }
         buttonAdd = findViewById(R.id.guardar1)
         buttonAdd.setOnClickListener {
-            val replyIntent = Intent()
-            if (TextUtils.isEmpty(title.text) && TextUtils.isEmpty(description.text)){
-                setResult(Activity.RESULT_CANCELED, replyIntent)
-                startActivityForResult(intent, newOcorrActivityRequestCode)
-                Toast.makeText(applicationContext, R.string.empty_not_saved, Toast.LENGTH_LONG).show()
-            } else {
+            if(title.text.toString() == "") {
+                Toast.makeText(this@AddProblema,getString(R.string.addtit), Toast.LENGTH_SHORT).show()
+            }
+            else if(description.text.toString() == "") {
+                Toast.makeText(this@AddProblema,getString(R.string.addDes), Toast.LENGTH_SHORT).show()
+
+            }
+            else if(latP.text.toString() == "") {
+                Toast.makeText(this@AddProblema,getString(R.string.addLa), Toast.LENGTH_SHORT).show()
+
+            }
+            else if(longP.text.toString() == "") {
+                Toast.makeText(this@AddProblema,getString(R.string.addLon), Toast.LENGTH_SHORT).show()
+            }
+            else {
                 post()
                 val intent = Intent(this, Marker::class.java)
                 intent.putExtra("id_user", idUser)
                 startActivity(intent)
                 finish()
             }
+
         }
 
         spinner = findViewById(R.id.spinner2)
